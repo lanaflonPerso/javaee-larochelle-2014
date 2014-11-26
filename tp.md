@@ -466,4 +466,5 @@ public JsonArray getAllTasks() {
 Je vous conseille de lire un peu de documentation sur le client HTTP de JAX-RS
 
 https://docs.oracle.com/javaee/7/tutorial/doc/jaxrs-client001.htm
+
 https://docs.oracle.com/javaee/7/api/index.html?javax/ws/rs/client/package-summary.html
