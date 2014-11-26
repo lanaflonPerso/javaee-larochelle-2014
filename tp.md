@@ -352,17 +352,17 @@ $.post('url', {param1:val1, param2:val2}, function(data) {
 * Pour faire un put http :
 
 ```javascript
-$.ajax({ url: 'url', type: 'put', data: {param1: val1} }, function(data) {
+$.ajax({ url: 'url', type: 'put', data: {param1: val1}, success: function(data) {
     // data contient les données retournées par les services REST
-});
+}});
 ```
 
 * Pour faire un delete http :
 
 ```javascript
-$.ajax({ url: 'url', type: 'delete', data: {param1: val1} }, function(data) {
+$.ajax({ url: 'url', type: 'delete', data: {param1: val1}, success: function(data) {
     // data contient les données retournées par les services REST
-});
+}});
 ```
 
 * Pour définir une action lorsqu'on clique sur un bouton avec l'id 'add' :
@@ -402,6 +402,12 @@ _.each(todos, function(todo) {
 * Ajout d'une tâche dans la liste de tâche :
 ```javascript
 $('#tasks').append( '<li> ... </li>' );
+```
+
+* Pour récupérer une donnée dans un élément du dom, vous pouvez y ajouter un attribut data-* et le récupérer de la manière suivante :
+
+```javascript
+var id = $('#node').data('taskid');
 ```
 
 et voici le template JS de départ (a mettre dans web/js/todo.js)
