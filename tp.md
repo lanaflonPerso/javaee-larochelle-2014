@@ -322,7 +322,7 @@ Les différents cas à couvrir pas votre IHM sont les suivant :
             <span>Nom de la tache</span>
         </div>
         <div className="col-md-2">
-            <span>Done</span>
+            <span class="label label-success">Done</span>
         </div>
     </div>
 </li>
@@ -338,7 +338,7 @@ Pour pouvoir finir la vue, voici quelques snippets :
 ```javascript
 $.get('url', function(data) {
     // data contient les données retournées par les services REST
-})
+});
 ```
 
 * Pour faire un post http :
@@ -346,7 +346,7 @@ $.get('url', function(data) {
 ```javascript
 $.post('url', {param1:val1, param2:val2}, function(data) {
     // data contient les données retournées par les services REST
-})
+});
 ```
 
 * Pour faire un put http :
@@ -354,7 +354,7 @@ $.post('url', {param1:val1, param2:val2}, function(data) {
 ```javascript
 $.ajax({ url: 'url', type: 'put', data: {param1: val1} }, function(data) {
     // data contient les données retournées par les services REST
-})
+});
 ```
 
 * Pour faire un delete http :
@@ -362,32 +362,32 @@ $.ajax({ url: 'url', type: 'put', data: {param1: val1} }, function(data) {
 ```javascript
 $.ajax({ url: 'url', type: 'delete', data: {param1: val1} }, function(data) {
     // data contient les données retournées par les services REST
-})
+});
 ```
 
 * Pour définir une action lorsqu'on clique sur un bouton avec l'id 'add' :
 ```javascript
 $('#add').click(function(e) {
-    e.preventDefault()
+    e.preventDefault();
     // code    
-})
+});
 ```
 
 * Récupération du nom dans l'input text :
 ```javascript
-$('#name').val()
+$('#name').val();
 ```
 
 * Mise à jour du nom dans l'input text :
 ```javascript
-$('#name').val('')
+$('#name').val('');
 ```
 
 * Réagir au click sur une checkbox de tâche :
 ```javascript
 $('body').on('click', '.label', function() {
     // code
-})
+});
 ```
 * Faire un for each sur le modèle avec underscore js :
 ```javascript
@@ -397,11 +397,11 @@ _.each(todos, function(todo) {
     } else {
         // code
     }
-})
+});
 ```
 * Ajout d'une tâche dans la liste de tâche :
 ```javascript
-$('#tasks').append( '<li> ... </li>' )
+$('#tasks').append( '<li> ... </li>' );
 ```
 
 et voici le template JS de départ (a mettre dans web/js/todo.js)
