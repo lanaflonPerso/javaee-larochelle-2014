@@ -275,7 +275,7 @@ Nous allons coder la partie client en Javascript en utiliser JQuery. Vous pouvez
 Voici le template html de l'application :
 
 ```html
-<div class="col-md-4">
+<div class="col-md-12">
   <h3>Todo List</h3>
   <div>
     <div class="row">
