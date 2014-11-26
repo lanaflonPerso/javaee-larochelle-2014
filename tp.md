@@ -270,7 +270,7 @@ Nous pouvons maintenant passer à la partie client
 II. Partie Client
 ---------------------------
 
-Nous allons coder la partie client en Javascript en utiliser JQuery. Vous pouvez utiliser n'importe quel autre framework JS du moment que vous savez l'utiliser.
+Nous allons coder la partie client en Javascript en utiliser JQuery. Vous pouvez utiliser n'importe quel autre framework JS du moment que vous savez l'utiliser. Je vous conseille cependant de regarder du côté d'Angular et de React.
 
 Voici le template html de l'application :
 
