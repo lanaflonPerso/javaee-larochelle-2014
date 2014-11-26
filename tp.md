@@ -5,14 +5,14 @@ Nous allons réaliser aujourd'hui une simple `TODO list` en utilisant diverses t
 
 Commencez par télécharger le squelette du TP [ici](https://raw.githubusercontent.com/mathieuancelin/javaee-larochelle-2014/master/todo-starter.zip). Si vous utilisez un poste de la fac, il faudra installer la dernière version de Netbeans + Glassfish.
 
-Le projet contient déjà le minimum vital pour avoir une application qui fonctionne. De plus le projet contient une IHM de démo pour tester vos service ainsi qu'un outil de diagnostique pour vérifier que votre implémentation tient la route.
+Le projet contient déjà le minimum vital pour avoir une application qui fonctionne. De plus le projet contient une IHM de démo pour tester vos services ainsi qu'un outil de diagnostic pour vérifier que votre implémentation tient la route.
 
 I. Partie Serveur
 --------------------------
 
-Tout d'abord il faut commencer par mettre en place tout la tuyauterie nécessaire pour l'application.
+Tout d'abord il faut commencer par mettre en place toute la tuyauterie nécessaire pour l'application.
 
-Il faut commencer par activer JAX-RS dans l'application. Pour celà créez un classe com.foo.bar.todo.App.java comme suivant :
+Il faut commencer par activer JAX-RS dans l'application. Pour celà créez une classe com.foo.bar.todo.App.java comme suivant :
 
 ```java
 package com.foo.bar.todo;
@@ -25,7 +25,7 @@ public class App extends Application {
 }
 ```
 
-Il va falloir ensuite être capable de communiquer avec la base de données. Pour celà nous avons besoin de récupérer une instance de l'`EntityManager` courant. Et comme nous voulons nous en service en utilisant `@Inject EntityManager em;` il va falloir aider CDI. Pour celà créer une classe com.foo.bar.todo.EmProducer.java comme suivant :
+Il va falloir ensuite être capable de communiquer avec la base de données. Pour celà nous avons besoin de récupérer une instance de l'`EntityManager` courant. Et comme nous voulons nous en servir en utilisant `@Inject EntityManager em;` il va falloir aider CDI. Pour celà créer une classe com.foo.bar.todo.EmProducer.java comme suivant :
 
 ```java
 package com.foo.bar.todo;
@@ -138,7 +138,7 @@ Maintenant, il faut créer les services REST correspondant. Vous pouvez créer u
 
 Cette classe doit répondre au contrat suivant :
 
-* GET    /Todo/api/tasks       => récupération toutes les instances de tâches
+* GET    /Todo/api/tasks       => récupération de toutes les instances de tâches
 * POST   /Todo/api/tasks       => création une nouvelle tâche 
 * PUT    /Todo/api/tasks/:id   => mise à jour d'une tâche
 * DELETE /Todo/api/tasks       => supression d'une tâche en particulier
@@ -270,7 +270,7 @@ Nous pouvons maintenant passer à la partie client
 II. Partie Client
 ---------------------------
 
-Nous allons coder la partie client en Javascript en utiliser JQuery. Vous pouvez utiliser n'importe quel autre framework JS du moment que vous savez l'utiliser. Je vous conseille cependant de regarder du côté d'Angular et de React.
+Nous allons coder la partie client en Javascript en utilisant JQuery. Vous pouvez utiliser n'importe quel autre framework JS du moment que vous savez l'utiliser. Je vous conseille cependant de regarder du côté d'Angular et de React.
 
 Voici le template html de l'application :
 
@@ -328,7 +328,7 @@ Les différents cas à couvrir pas votre IHM sont les suivant :
 </li>
 ```
 
-* Lors du clic sur une tâche, marquer la tâche comme effectuée (via le service REST approprié) et appliqué le style `label-success` sur le `span` de la tâche afin qu'elle apparaisse barrée.
+* Lors du clic sur une tâche, marquer la tâche comme effectuée (via le service REST approprié) et appliquer le style `label-success` sur le `span` de la tâche afin qu'elle apparaisse barrée.
 * Lors du clic sur le bouton remove, toutes les tâche marquées comme effectuée sont effacées (via le service REST approprié) et sont retirées de la liste de tâches.
 
 Pour pouvoir finir la vue, voici quelques snippets :
@@ -441,11 +441,11 @@ Commencez par télécharger les squelettes de ces trois applications [ici](https
 
 Ici, l'application Frontend (qui contient l'IHM) se chargera de consommer divers services depuis deux applications backend afin de créer une `TODO list` multi utilisateurs. Comme lors de la partie précedente, l'application frontend contient une démo ainsi qu'un outil de diagnostique.
 
-Voici les services à implémenter côté frontend. Vous êtes libre d'implémenter les services backend comme vous voudrez. Cependant votre application frontend doit absolument communiquer avec les applications frontend grâce à des services REST (vous utiliserez le client HTTP fourni avec JAX-RS). La différence majeure de cette version est qu'il va devoir être nécessaire de gérer les utilisateurs qui créé des tâches. Pour celà il faudra créer un service de gestion d'utilisateurs et il faudra rajouter un id utilisateur dans chaque tâche. Il faudra également ajouter un sélecteur d'utilisateur dans l'IHM et afficher le nom de l'utilisateur qui à créer la tâche pour chaque tâche.
+Voici les services à implémenter côté frontend. Vous êtes libre d'implémenter les services backend comme vous voudrez. Cependant votre application frontend doit absolument communiquer avec les applications backend grâce à des services REST (vous utiliserez le client HTTP fourni avec JAX-RS). La différence majeure de cette version est qu'il va devoir être nécessaire de gérer les utilisateurs qui créent des tâches. Pour celà il faudra créer un service de gestion d'utilisateurs et il faudra rajouter un id utilisateur dans chaque tâche. Il faudra également ajouter un sélecteur d'utilisateur dans l'IHM et afficher le nom de l'utilisateur qui à créé la tâche pour chaque tâche.
 
-* GET    /TodoFrontend/api/users       => récupération tous les utilisateurs du système
-* GET    /TodoFrontend/api/tasks       => récupération toutes les instances de tâches
-* POST   /TodoFrontend/api/tasks + param userId et name dans le body     => création une nouvelle tâche 
+* GET    /TodoFrontend/api/users       => récupération de tous les utilisateurs du système
+* GET    /TodoFrontend/api/tasks       => récupération de toutes les instances de tâches
+* POST   /TodoFrontend/api/tasks + param userId et name dans le body     => création d'une nouvelle tâche 
 * PUT    /TodoFrontend/api/tasks/:id + param userId et param done dans le body => mise à jour d'une tâche
 * DELETE /TodoFrontend/api/tasks       => supression d'une tâche en particulier
 * DELETE /TodoFrontend/api/tasks/done  => supression des tâches finies
